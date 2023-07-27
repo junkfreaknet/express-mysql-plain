@@ -15,8 +15,8 @@ function displayResult(recieve_rows,FLGbrowser){
     a_row=recieve_rows[i];
     //console.log((i+1)+'*****'+a_row.syu_ymd+','+a_row.bin_kb+','+a_row.haibun_mad+','+a_row.ad_ten_no+','+a_row.haiso_course+','+a_row.haiso_order+','+a_row.ten_no+','+a_row.ten_nm_kanji);
     //console.log((i+1)+'*****'+a_row.syu_ymd+','+a_row.bin_kb+','+a_row.haibun_mad);
-    
-    strBuffResult=(i+1)+'*****'+a_row.syu_ymd+','+a_row.bin_kb+','+a_row.haibun_mad;
+    strBuffResult='<br>'+(i+1)+'*****'+a_row.syu_ymd+','+a_row.bin_kb+','+a_row.haibun_mad+','+a_row.ad_ten_no+','+a_row.haiso_course+','+a_row.haiso_order+','+a_row.ten_no+','+a_row.ten_nm_kanji;
+    //strBuffResult='<br>'+(i+1)+'*****'+a_row.syu_ymd+','+a_row.bin_kb+','+a_row.haibun_mad;
     console.log(strBuffResult);
     strResult=strResult+strBuffResult;
     /**if(FLGbrowser){
@@ -44,8 +44,8 @@ console.log('count  :'+recieve_rows.length);
 })
 try{
   console.log('connected!');
-  const strSQL='select distinct syu_ymd,bin_kb,haibun_mad from select_locale_child_202212011001_cp_csv order by syu_ymd,bin_kb,haibun_mad';
-  //const strSQL='select syu_ymd,bin_kb,haibun_mad,ad_ten_no,haiso_course,haiso_order,ten_no,ten_nm_kanji from select_locale_child_202212011001_cp_csv order by syu_ymd,bin_kb,haibun_mad,ad_ten_no,haiso_course,haiso_order';
+  //const strSQL='select distinct syu_ymd,bin_kb,haibun_mad from select_locale_child_202212011001_cp_csv order by syu_ymd,bin_kb,haibun_mad';
+  const strSQL='select syu_ymd,bin_kb,haibun_mad,ad_ten_no,haiso_course,haiso_order,ten_no,ten_nm_kanji from select_locale_child_202212011001_cp_csv order by syu_ymd,bin_kb,haibun_mad,ad_ten_no,haiso_course,haiso_order';
 
   const [rows,fields]=await cnnctn.execute(strSQL);
   strResult="";
